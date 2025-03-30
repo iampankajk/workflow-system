@@ -35,6 +35,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Slider } from '@/components/ui/slider';
 import { nodeTypes, edgeTypes } from './NodeTypes';
 import { NodePropertiesModal } from './NodePropertiesModal';
+import { useRouter } from 'next/navigation';
 
 interface WorkflowEditorProps {
   initialNodes?: Node[];
@@ -98,6 +99,7 @@ function WorkflowEditorContent({
   const [selectedNode, setSelectedNode] = useState<Node | null>(null);
   const [isNodePropertiesOpen, setIsNodePropertiesOpen] = useState(false);
   const [zoomLevel, setZoomLevel] = useState<number[]>([1]);
+  const router = useRouter();
 
   // Store history for undo/redo
   const historyRef = useRef<{
@@ -458,7 +460,14 @@ function WorkflowEditorContent({
     >
       <div className='absolute top-0 left-0 z-10 p-4 w-full flex justify-between items-center gap-4 bg-white border-b'>
         <div className='flex gap-2 flex-1 max-w-md'>
-          <Button variant='ghost' size='sm' className='gap-1'>
+          <Button
+            variant='ghost'
+            size='sm'
+            className='gap-1'
+            onClick={() => {
+              router.push('/dashboard');
+            }}
+          >
             <ChevronLeft className='h-4 w-4' />
             Go Back
           </Button>

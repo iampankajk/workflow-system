@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
@@ -22,18 +21,15 @@ import {
   orderBy,
 } from 'firebase/firestore';
 
-// Your web app's Firebase configuration
-// Replace with your own Firebase config
 const firebaseConfig = {
-  apiKey: 'AIzaSyDsH3TDq6lV0cHil-HrnoDKEQbxTqEucq8',
-  authDomain: 'workflow-management-syst-d34e9.firebaseapp.com',
-  projectId: 'workflow-management-syst-d34e9',
-  storageBucket: 'workflow-management-syst-d34e9.firebasestorage.app',
-  messagingSenderId: '1021774446324',
-  appId: '1:1021774446324:web:4ebf11c524f8a503f8a8a1',
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);

@@ -52,13 +52,7 @@ export default function CreateWorkflowPage() {
   };
 
   return (
-    <div className='space-y-6'>
-      {/* <h1 className="text-3xl font-bold">Create Workflow</h1>
-      <p className="text-muted-foreground">
-        Design your workflow by adding steps and connecting them together.
-        Start from the start node and connect to the end node.
-      </p> */}
-
+    <div className='space-y-4'>
       <WorkflowEditor onSave={handleSave} />
 
       {isSaving && (
